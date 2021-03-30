@@ -47,6 +47,10 @@ LINIE <- read.csv(paste0(input_path,"LINIE.csv"),
                          encoding="UTF-8",
                          sep=";")
 
+GEFAESSGROESSE <- read.csv(paste0(input_path,"GEFAESSGROESSE.csv"),
+                           encoding="UTF-8",
+                           sep=";")
+
 #Main table
 REISENDE <- read.csv(paste0(input_path,"REISENDE.csv"),
                          encoding="UTF-8",
@@ -66,7 +70,10 @@ REISENDE_full <- REISENDE%>%
             by=c("Tagtyp_Id"="Tagtyp_Id"))%>%
   #join LINIE
   left_join(LINIE,
-            by=c("Linien_Id"="Linien_Id"))
+            by=c("Linien_Id"="Linien_Id"))%>%
+  #join GEFAESSGROESSE
+  left_join(GEFAESSGROESSE,
+            by=c("Plan_Fahrt_Id"="Plan_Fahrt_Id"))
 
 #### >> Passenger per line ####
 # hint: "Linien_Id" is only unique within one year. Use "Linienname" to compare lines
