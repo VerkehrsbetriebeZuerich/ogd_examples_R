@@ -65,7 +65,7 @@ Output data depend on the downloaded datasets and may therefore differ from the 
 
 **Script**
 
-example_traveltimedata.py
+example_traveltimedata.R
 
 **Input**
 
